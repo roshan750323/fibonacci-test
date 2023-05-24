@@ -17,7 +17,7 @@ pipeline {
         }
       }
     }
-    stage('Build and Push Docker Image') {
+    stage('Build and Push to harbor') {
       steps {
         script {
           def dockerImage = docker.build("sre-training/roshan-fibonacci:2.0", "-f Dockerfile .")

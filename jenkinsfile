@@ -4,7 +4,7 @@ pipeline {
     stage('Build Docker image') {
       steps {
         script {
-          docker.build('fibonacci:3.0', '.')
+          docker.build('roshan750/fibonacci:3.0')
         }
       }
     }
@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan') {
-            docker.image('fibonacci:3.0').push()
+            docker.image('roshan750/fibonacci:3.0').push()
           }
         }
       }

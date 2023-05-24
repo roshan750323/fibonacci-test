@@ -1,0 +1,45 @@
+pipeline {
+
+  agent any
+
+  stages {
+
+    stage('Build Docker image') {
+
+      steps {
+
+        script {
+
+           // docker.build("fibonnaci:3.0", "-f Dockerfile .")
+
+            def builtImage = docker.build("fibonnaci:3.0", "-f Dockerfile .")
+
+        }
+
+      }
+
+    }
+
+    stage('Push to Docker Hub') {
+
+      steps {
+
+        script {
+
+       docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan')
+
+       {
+
+         builtImage.push("roshan750/fibonnaci:2.0")
+
+       }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

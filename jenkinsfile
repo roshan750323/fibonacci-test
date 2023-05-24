@@ -13,7 +13,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan') {
-            env.BUILT_IMAGE.push()
+            docker.image(env.BUILT_IMAGE).push()
           }
         }
       }

@@ -4,7 +4,7 @@ pipeline {
     stage('Build Docker image') {
       steps {
         script {
-          docker.build('roshan750/fibonacci:5.0')
+          docker.build('roshan750/fibonacci:6.0')
         }
       }
     }
@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan') {
-            docker.image('roshan750/fibonacci:5.0').push()
+            docker.image('roshan750/fibonacci:6.0').push()
           }
         }
       }
@@ -20,7 +20,7 @@ pipeline {
     stage('Build and Push to harbor') {
       steps {
         script {
-          def dockerImage = docker.build("sre-training/roshan-fibonacci:2.0", "-f Dockerfile .")
+          def dockerImage = docker.build("sre-training/roshan-fibonacci:5.0", "-f Dockerfile .")
           docker.withRegistry('https://harbor.cubastion.net', 'harbor_sre') {
             dockerImage.push()
           }

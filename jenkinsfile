@@ -5,6 +5,7 @@ pipeline {
       steps {
         script {
           def builtImage = docker.build("fibonnaci:3.0")
+          env.BUILT_IMAGE = builtImage
         }
       }
     }
@@ -12,7 +13,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan') {
-            builtImage.push()
+            env.BUILT_IMAGE.push()
           }
         }
       }

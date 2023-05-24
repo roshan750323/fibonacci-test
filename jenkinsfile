@@ -4,7 +4,7 @@ pipeline {
     stage('Build Docker image') {
       steps {
         script {
-          def builtImage = docker.build("fibonnaci:3.0")
+          def builtImage = docker.build("fibonacci:3.0")
           env.BUILT_IMAGE = builtImage
         }
       }

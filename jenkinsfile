@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'dockerhub_image_name', defaultValue: 'roshan750/fibonnaci', description: 'Specify the Dockerhub image name')
+    string(name: 'dockerhub_image_name', defaultValue: 'roshan750/fibonacci', description: 'Specify the Dockerhub image name')
     string(name: 'tag_num', defaultValue: '3.0', description: 'Specify the Docker image tag')
     string(name: 'harbor_image_name', defaultValue: 'sre-training/roshan-fibonacci', description: 'Specify the harbor image name')
   }

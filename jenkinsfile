@@ -16,7 +16,7 @@ pipeline {
     stage('Push to Docker Hub') {
       steps {
         script {
-          docker.withRegistry('https://registry.hub.docker.com', 'docker_harshit') {
+          docker.withRegistry('https://registry.hub.docker.com', 'docker_roshan') {
             docker.image("${params.dockerhub_image_name}:${params.tag_num}").push()
           }
         }

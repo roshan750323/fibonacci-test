@@ -1,4 +1,11 @@
 # Docker
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'Subscription 2_Roshan Rai(73086881-2b52-4ae4-a7f8-36fb744ca8f5)'
+    azureResourceGroup: 'rg-test'
+    kubernetesCluster: 'k8-test'
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 

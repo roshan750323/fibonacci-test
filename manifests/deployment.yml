@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: roshanfibonaccitest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: roshanfibonaccitest
+  template:
+    metadata:
+      labels:
+        app: roshanfibonaccitest 
+    spec:
+      containers:
+        - name: roshanfibonaccitest 
+          image: myregistryfortest.azurecr.io/roshanfibonaccitest
+          ports:
+          - containerPort: 80
